@@ -1,7 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
-    <meta http-equiv="refresh" content="0;url=https://www.g5bet.com/my/44qvz424yd99694q5y4y25wwpu44rbtk5ge8c.jsp?utm_c=%7B%7Bcampaign.name%7D%7D&utm_cid=%7B%7Bcampaign.id%7D%7D&utm_as=%7B%7Badset.name%7D%7D&utm_asid=%7B%7Badset.id%7D%7D&utm_a=%7B%7Bad.name%7D%7D&utm_aid=%7B%7Bad.id%7D%7D">
+    <meta charset="UTF-8">
+    <title>跳转页面</title>
+    <script>
+        // 获取 URL 参数并构建新的跳转 URL
+        function getUrlParams() {
+            var params = new URLSearchParams(window.location.search);
+            var utmParams = {
+                utm_c: params.get('utm_c') || '',
+                utm_cid: params.get('utm_cid') || '',
+                utm_as: params.get('utm_as') || '',
+                utm_asid: params.get('utm_asid') || '',
+                utm_a: params.get('utm_a') || '',
+                utm_aid: params.get('utm_aid') || ''
+            };
+            return utmParams;
+        }
+
+        // 构建跳转的完整 URL
+        function redirectToTarget() {
+            var baseUrl = "https://www.g5bet.com/my/44qvz424yd99694q5y4y25wwpu44rbtk5ge8c.jsp";
+            var params = getUrlParams();
+            
+            // 使用 URLSearchParams 来动态构建查询字符串
+            var url = new URL(baseUrl);
+            for (var key in params) {
+                if (params[key]) {
+                    url.searchParams.set(key, params[key]);
+                }
+            }
+
+            // 执行跳转
+            window.location.href = url.toString();
+        }
+
+        // 页面加载时执行跳转
+        window.onload = function() {
+            redirectToTarget();
+        };
+    </script>
 </head>
-<body></body>
+<body>
+    <!-- 页面加载时跳转，不需要显示任何内容 -->
+</body>
 </html>
