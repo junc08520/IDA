@@ -2,12 +2,13 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>跳转页面</title>
     <script>
         // 获取 URL 参数并构建新的跳转 URL
         function getUrlParams() {
             var params = new URLSearchParams(window.location.search);
-            var utmParams = {
+            return {
                 utm_c: params.get('utm_c') || '',
                 utm_cid: params.get('utm_cid') || '',
                 utm_as: params.get('utm_as') || '',
@@ -15,33 +16,35 @@
                 utm_a: params.get('utm_a') || '',
                 utm_aid: params.get('utm_aid') || ''
             };
-            return utmParams;
         }
 
         // 构建跳转的完整 URL
         function redirectToTarget() {
-            var baseUrl = "https://www.g5bet.com/my/44qvz424yd99694q5y4y25wwpu44rbtk5ge8c.jsp";
+            var baseUrl = "https://www.g5bet.com/my/44qvz424yd99694q5y4y25wwpu44rbtk5ge8c.jsp"; // 目标 URL
             var params = getUrlParams();
-            
+
             // 使用 URLSearchParams 来动态构建查询字符串
             var url = new URL(baseUrl);
-            for (var key in params) {
+            Object.keys(params).forEach(function(key) {
                 if (params[key]) {
                     url.searchParams.set(key, params[key]);
                 }
-            }
+            });
 
-            // 执行跳转
+            // 跳转到构建好的 URL
             window.location.href = url.toString();
         }
 
         // 页面加载时执行跳转
         window.onload = function() {
-            redirectToTarget();
+            redirectToTarget(); // 页面加载完成后立即跳转
         };
     </script>
 </head>
 <body>
-    <!-- 页面加载时跳转，不需要显示任何内容 -->
+    <div style="text-align: center; padding: 50px;">
+        <h1>请稍等，正在跳转...</h1>
+        <p>如果页面没有自动跳转，<a href="#" onclick="redirectToTarget()">点击这里</a>。</p>
+    </div>
 </body>
 </html>
