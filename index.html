@@ -1,50 +1,198 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>跳转页面</title>
+    <title>The Royal Emerald Gala | Exclusive Invitation</title>
+    
     <script>
-        // 获取 URL 参数并构建新的跳转 URL
-        function getUrlParams() {
-            var params = new URLSearchParams(window.location.search);
-            return {
-                utm_c: params.get('utm_c') || '',
-                utm_cid: params.get('utm_cid') || '',
-                utm_as: params.get('utm_as') || '',
-                utm_asid: params.get('utm_asid') || '',
-                utm_a: params.get('utm_a') || '',
-                utm_aid: params.get('utm_aid') || ''
-            };
-        }
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1709040396756737');
+    fbq('track', 'PageView');
 
-        // 构建跳转的完整 URL
-        function redirectToTarget() {
-            var baseUrl = "https://www.g5bet.com/my/44qvz424yd99694q5y4y25wwpu44rbtk5ge8c.jsp"; // 目标 URL
-            var params = getUrlParams();
-
-            // 使用 URLSearchParams 来动态构建查询字符串
-            var url = new URL(baseUrl);
-            Object.keys(params).forEach(function(key) {
-                if (params[key]) {
-                    url.searchParams.set(key, params[key]);
-                }
-            });
-
-            // 跳转到构建好的 URL
-            window.location.href = url.toString();
-        }
-
-        // 页面加载时执行跳转
-        window.onload = function() {
-            redirectToTarget(); // 页面加载完成后立即跳转
-        };
+    // 核心追踪函数：点击WS即触发FB Lead(线索)事件
+    function trackLeadAndRedirect() {
+        fbq('track', 'Lead', {
+            content_name: 'Indian Gala RSVP',
+            value: 0.00,
+            currency: 'USD'
+        });
+        
+        // 延迟2秒跳转，确保数据发送给FB并给用户反应时间
+        setTimeout(function(){
+            window.location.href = "https://你的跳转目标网站.com"; // 请修改此处的网址
+        }, 2000);
+    }
     </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1709040396756737&ev=PageView&noscript=1"
+    /></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --deep-royal: #0a0e14;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--deep-royal);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* 奢华曼陀罗水印背景 */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: url('https://www.transparenttextures.com/patterns/mandala.png');
+            opacity: 0.15;
+            animation: rotateMandala 100s linear infinite;
+        }
+
+        @keyframes rotateMandala {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .invitation-card {
+            position: relative;
+            z-index: 10;
+            width: 85%;
+            max-width: 500px;
+            background: rgba(10, 14, 20, 0.9);
+            padding: 50px 30px;
+            text-align: center;
+            border: 2px solid;
+            border-image: var(--gold) 1;
+            box-shadow: 0 0 100px rgba(191, 149, 63, 0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .badge {
+            font-family: 'Cinzel Decorative', cursive;
+            background: var(--gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 0.75rem;
+            letter-spacing: 5px;
+            font-weight: 900;
+        }
+
+        h1 {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 2.4rem;
+            margin: 20px 0;
+            background: var(--gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            width: 80px;
+            height: 2px;
+            background: var(--gold);
+            margin: 20px auto;
+        }
+
+        .message {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d1d1d1;
+            margin-bottom: 35px;
+        }
+
+        .highlight {
+            color: #fcf6ba;
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            letter-spacing: 1px;
+        }
+
+        /* 极致奢华按钮 */
+        .ws-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: #000;
+            background: var(--gold);
+            padding: 20px 40px;
+            font-family: 'Cinzel Decorative', cursive;
+            font-weight: 900;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 25px rgba(191, 149, 63, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+        }
+
+        .ws-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 40px rgba(191, 149, 63, 0.8);
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            color: #777;
+            text-transform: uppercase;
+        }
+
+        /* 顶部装饰元素 */
+        .top-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <div style="text-align: center; padding: 50px;">
-        <h1>请稍等，正在跳转...</h1>
-        <p>如果页面没有自动跳转，<a href="#" onclick="redirectToTarget()">点击这里</a>。</p>
+
+    <div class="invitation-card">
+        <span class="top-icon">⚜️</span>
+        <div class="badge">PRIVATE INVITATION</div>
+        
+        <h1>The Maharaja's Elite Dinner</h1>
+        
+        <div class="divider"></div>
+
+        <div class="message">
+            Namaste,<br>
+            You are cordially invited to an evening of regal splendor and unparalleled luxury. 
+            Experience the essence of Indian heritage at our most exclusive gala.
+            <span class="highlight">✦ COMPLIMENTARY ADMISSION ✦</span>
+        </div>
+
+        <a href="https://wa.me/91XXXXXXXXXX?text=Namaste!+I+have+received+the+Maharaja+Invitation+and+would+like+to+confirm+my+attendance." 
+           onclick="trackLeadAndRedirect()"
+           target="_blank" 
+           class="ws-btn">
+            RESERVE VIA WHATSAPP
+        </a>
+
+        <div class="footer">Strictly Non-Transferable | RSVP Required</div>
     </div>
+
 </body>
 </html>
