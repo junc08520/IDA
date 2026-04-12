@@ -14,20 +14,24 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
+    
     fbq('init', '1709040396756737');
     fbq('track', 'PageView');
 
     // 核心追踪函数：点击WS即触发FB Lead(线索)事件
     function trackLeadAndRedirect() {
+        // 触发 FB 转化事件：联系/线索
         fbq('track', 'Lead', {
-            content_name: 'Indian Gala RSVP',
-            value: 0.00,
-            currency: 'USD'
+            content_name: 'WhatsApp RSVP',
+            content_category: 'Contact'
         });
         
-        // 延迟2秒跳转，确保数据发送给FB并给用户反应时间
+        console.log('FB Lead event tracked.');
+
+        // 延迟跳转，确保 FB 代码有足够时间运行
         setTimeout(function(){
-            window.location.href = "https://你的跳转目标网站.com"; // 请修改此处的网址
+            // 请在此处替换为你指定的跳转网址
+            window.location.href = "https://你的跳转目标网站.com"; 
         }, 2000);
     }
     </script>
@@ -55,7 +59,7 @@
             overflow: hidden;
         }
 
-        /* 奢华曼陀罗水印背景 */
+        /* 奢华曼陀罗背景 */
         body::before {
             content: "";
             position: absolute;
@@ -159,7 +163,6 @@
             text-transform: uppercase;
         }
 
-        /* 顶部装饰元素 */
         .top-icon {
             font-size: 30px;
             margin-bottom: 10px;
@@ -184,9 +187,8 @@
             <span class="highlight">✦ COMPLIMENTARY ADMISSION ✦</span>
         </div>
 
-        <a href="
-            <a href="https://api.whatsapp.com/send/?phone=13184785260&text=Hi, Learn about the event" 
-           onclick="trackLeadAndRedirect()"
+        <a href="https://api.whatsapp.com/send/?phone=13184785260&text=Hi, Learn about the event" 
+           onclick="trackLeadAndRedirect()" 
            target="_blank" 
            class="ws-btn">
             RESERVE VIA WHATSAPP
